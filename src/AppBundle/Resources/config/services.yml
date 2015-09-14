@@ -1,11 +1,3 @@
-parameters:
-        eve_nomad.name: "Eve Nomad Capsuleers"
-        eve_nomad.version: 0.0.1
-        eve_nomad.parameters:
-            name: "%eve_nomad.name% - %eve_nomad.version%"
-            cache: /cache/phealcache/
-            root_dir: %kernel.root_dir% 
-            
 services:
     # use https://github.com/3rdpartyeve/phealng for xml api call and caching
 #    eve_nomad.pheal:
