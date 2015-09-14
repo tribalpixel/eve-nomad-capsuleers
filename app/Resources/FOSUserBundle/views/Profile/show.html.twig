@@ -1,0 +1,7 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block page_title %}My Profile <small><a href="{{  path('fos_user_profile_edit') }}" class="btn btn-primary btn-xs">Edit</a></small>{% endblock %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock fos_user_content %}

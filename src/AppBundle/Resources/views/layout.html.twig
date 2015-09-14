@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <title>{% block title %}{{ app_name }}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+     
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body role="document">      
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ path('app_homepage') }}">{{ app_name }}</a>
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('fos_user_profile_show') }}" title="My Profile"><span class="glyphicon glyphicon-user" aria-hidden="true" sr-only="user-icon"></span></a></li>
+                <li><a href="{{ path('app_settings') }}" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true" sr-only="settings-icon"></span></a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}" title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true" sr-only="logout-icon"></span></a></li>
+              </ul>
+            </div>
+            {% endif %}   
+          </div>
+        </nav>     
+        
+        
+        <div class="container" role="main" style="margin-top:60px;">
+            <div class="page-header">
+                <h2>{% block page_title %}PAGE TITLE HERE{% endblock %}</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                   
+                {# http://www.lucas.courot.com/render-all-flash-messages-in-twig.html #}
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-info {{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %} 
+                
+                {% block body %}{% endblock %}
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Latest compiled and minified JavaScript -->      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>   
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>

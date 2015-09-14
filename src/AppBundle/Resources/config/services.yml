@@ -1,0 +1,21 @@
+parameters:
+        eve_nomad.name: "Eve Nomad Capsuleers"
+        eve_nomad.version: 0.0.1
+        eve_nomad.parameters:
+            name: "%eve_nomad.name% - %eve_nomad.version%"
+            cache: /cache/phealcache/
+            root_dir: %kernel.root_dir% 
+            
+services:
+    # use https://github.com/3rdpartyeve/phealng for xml api call and caching
+#    eve_nomad.pheal:
+#        class: Tribalpixel\EveNomadBundle\Service\PhealService
+#        arguments: [%eve_nomad.parameters%] 
+        
+#    eve_nomad.db:
+#        class: Tribalpixel\EveNomadBundle\Service\EveDatabaseService
+#        arguments: ['@doctrine.dbal.eve_connection','@doctrine.dbal.default_connection']  
+
+#    eve_nomad.parser:
+#        class: Tribalpixel\EveNomadBundle\Service\ParserService
+#        arguments: ['@eve_nomad.db'] 
