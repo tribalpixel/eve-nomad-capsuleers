@@ -1,8 +1,11 @@
 services:
-    # use https://github.com/3rdpartyeve/phealng for xml api call and caching
+# use https://github.com/3rdpartyeve/phealng for xml api call and caching
 #    eve_nomad.pheal:
 #        class: Tribalpixel\EveNomadBundle\Service\PhealService
 #        arguments: [%eve_nomad.parameters%] 
+
+    eve_nomad.perry:
+        class: AppBundle\Service\PerryService
         
 #    eve_nomad.db:
 #        class: Tribalpixel\EveNomadBundle\Service\EveDatabaseService
